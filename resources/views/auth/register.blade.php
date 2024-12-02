@@ -198,7 +198,7 @@
                 </div>
 
                 <!-- Password Confirmation Field -->
-                <div class="form-group">
+                <div class="form-group" style="margin-bottom:10px;">
                     <input type="password" name="password_confirmation" placeholder="Confirm Password" required>
                 </div>
 
@@ -206,6 +206,13 @@
                 <div class="form-group" style="margin-left:200px;">
                     <button type="submit">Register</button>
                 </div>
+
+                <div class="form-group" style="margin-left:30px; margin-top:10px;">
+                    <p style="font-size:15px;">
+                        Already registered? <a href="{{ route('login') }}" style="color: #2974E5; text-decoration: none;">Sign in here!</a>
+                    </p>
+                </div>
+                
             </form>
         </div>
     </div>

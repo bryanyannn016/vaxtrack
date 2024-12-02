@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\VaccineStock;
+use Illuminate\Support\Facades\Hash;
+
 
 class HCAdminController extends Controller
 {
@@ -64,6 +66,37 @@ class HCAdminController extends Controller
         return redirect()->back()->with('success', 'New vaccine added successfully!');
     }
     
+    public function accountSettings()
+{
+    // Assuming the logged-in user information is available via Auth
+    $user = auth()->user();
+
+    // Pass the user details to the blade view
+    return view('hcadmin.account_settings', compact('user'));
+}
+
+public function changePassword(Request $request)
+{
+    $request->validate([
+        'current_password' => 'required',
+        'new_password' => 'required|confirmed|min:8',
+    ]);
+
+    $user = auth()->user();
+
+    // Check if the current password matches
+    if (!Hash::check($request->current_password, $user->password)) {
+        return back()->withErrors(['current_password' => 'Current password is incorrect.']);
+    }
+
+    // Update the password
+    $user->update([
+        'password' => Hash::make($request->new_password),
+    ]);
+
+    // Flash a success message
+    return redirect()->route('hcadmin.dashboard')->with('success', 'Password successfully changed.');
+}
     
 
 }

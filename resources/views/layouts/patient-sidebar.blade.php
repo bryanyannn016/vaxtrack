@@ -383,34 +383,32 @@
 
             <!-- Admin Section -->
             <div class="admin-section">
-                <img src="{{ asset('doctor-logout.png') }}" alt="HCProvider Logout Icon">
+                <img src="{{ asset('patient-logout.png') }}" alt="Patient Logout Icon">
                 <a href="{{ route('logout') }}" class="logout-link">
-                    <span class="admin-text">HCProvider</span>
+                    <span class="admin-text">Patient</span>
                     <span class="logout-text">Logout</span>
                 </a>
             </div>
 
             <ul>
                 <li style="margin-bottom: 5px;">
-                    <a href="{{ route('hcprovider.dashboard') }}" class="{{ request()->routeIs('hcprovider.dashboard', 'hcprovider.findPatient', 'hcprovider.createPatient', 'hcprovider.savePatient', 'hcprovider.admitPatient', 'admit.patient.store', 'hcprovider.viewPatientRecord', 'hcprovider.viewExistingPatientRecord', 
-                    'hcprovider.selectPatient', 'hcprovider.admitexisting') ? 'active' : '' }}">
-                        <img src="{{ asset('records.png') }}" alt="Admitting Icon">
-                        Admitting
+                    <a href="{{ route('patient.dashboard') }}" class="{{ request()->routeIs('patient.dashboard') ? 'active' : '' }}">
+                        <img src="{{ asset('record-patients.png') }}" alt="Record Icon">
+                        Records
                     </a>
                 </li>
                 <li style="margin-bottom: 170px;">
-                    <a href="{{ route('hcprovider.scheduledpatient') }}" class="{{ request()->routeIs('hcprovider.scheduledpatient', 'hcprovider.find_scheduledpatient') ? 'active' : '' }}">
-                        <img src="{{ asset('admitting.png') }}" alt="Admitting Icon">
-                        Scheduled
+                    <a href="{{route('patient.schedule')}}" class="{{ request()->routeIs('patient.schedule') ? 'active' : '' }}">
+                        <img src="{{ asset('admitting.png') }}" alt="Record Icon">
+                        Schedule
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('hcprovider.account_settings') }}" class="{{ request()->routeIs('hcprovider.account_settings') ? 'active' : '' }}">
+                    <a href="{{ route('patient.account_settings') }}" class="{{ request()->routeIs('patient.account_settings') ? 'active' : '' }}">
                         <img src="{{ asset('settings.png') }}" alt="Account Settings Icon">
                         Account Settings
                     </a>
                 </li>
-
                 
                 <!-- Add more sidebar links here -->
             </ul>

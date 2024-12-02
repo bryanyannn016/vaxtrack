@@ -133,6 +133,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            height:100px;
         }
 
         .modal-body {
@@ -207,24 +208,36 @@
     </div>
 
     <!-- Modal for Privacy Notice -->
-    <div id="privacyModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>PRIVACY NOTICE</h2>
-                <h2>VAXTRACK</h2>
-            </div>
-            <div class="modal-body">
-                <p>Your privacy is important to us. Please read and accept our Privacy Notice to proceed.</p>
-                <label>
-                    <input type="checkbox" id="privacyAgree" required>
-                    I have read and agree to the Privacy Notice.
-                </label>
-            </div>
-            <div class="modal-footer">
-                <button onclick="confirmPrivacy()">Confirm</button>
-            </div>
+<div id="privacyModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>PRIVACY NOTICE</h2>
+            <h2>VaxTrack</h2>
+        </div>
+        <div class="modal-body">
+            <p>
+                Your privacy is very important to us. This Privacy Notice outlines how we collect, use, and protect your personal information when you use VaxTrack.
+            </p>
+            <p>
+                By accessing this platform, you consent to the collection and processing of your personal data for purposes such as vaccination record management, user authentication, and communication. We are committed to ensuring that your data is stored securely and used only for the purposes for which it was collected.
+            </p>
+            <p>
+                Your information will not be shared with third parties without your explicit consent, except where required by law or for legitimate public health purposes. You have the right to access, modify, or delete your personal information as outlined in our detailed privacy policy.
+            </p>
+            <p>
+                For more information about our data practices, please review the full privacy policy available on our website or contact our support team. By checking the box below, you acknowledge that you have read and agree to the terms of this Privacy Notice.
+            </p>
+            <label>
+                <input type="checkbox" id="privacyAgree" required>
+                I have read and agree to the Privacy Notice.
+            </label>
+        </div>
+        <div class="modal-footer">
+            <button onclick="confirmPrivacy()">Confirm</button>
         </div>
     </div>
+</div>
+
 
     <!-- JavaScript for Modal -->
     <script>

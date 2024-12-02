@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Models\VaccineStock; // Make sure this is the correct namespace for your model
 use Illuminate\Support\Facades\Session;
 use Carbon\Carbon; 
+use Illuminate\Support\Facades\Hash;
+
 
 
 class HCProviderController extends Controller
@@ -368,5 +370,37 @@ public function findScheduledPatient(Request $request)
 }
 
 
+public function accountSettings()
+{
+    // Assuming the logged-in user information is available via Auth
+    $user = auth()->user();
+
+    // Pass the user details to the blade view
+    return view('hcprovider.account_settings', compact('user'));
+}
+
+public function changePassword(Request $request)
+{
+    $request->validate([
+        'current_password' => 'required',
+        'new_password' => 'required|confirmed|min:8',
+    ]);
+
+    $user = auth()->user();
+
+    // Check if the current password matches
+    if (!Hash::check($request->current_password, $user->password)) {
+        return back()->withErrors(['current_password' => 'Current password is incorrect.']);
+    }
+
+    // Update the password
+    $user->update([
+        'password' => Hash::make($request->new_password),
+    ]);
+
+    // Flash a success message
+    return redirect()->route('hcprovider.dashboard')->with('success', 'Password successfully changed.');
+}
+    
     
 }

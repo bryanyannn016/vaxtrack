@@ -215,7 +215,7 @@
 }
 
 .account-table {
-    margin-left:100px;
+    margin-left:50px;
     border-collapse: collapse; /* Collapses borders for a seamless design */
     width: 80%; /* Ensures the table takes full width */
     table-layout: fixed; /* Ensures fixed column layout */
@@ -276,10 +276,16 @@
             </div>
 
             <ul>
-                <li>
+                <li style="margin-bottom: 180px;">
                     <a href="{{ route('hcadmin.dashboard') }}" class="{{ request()->routeIs('hcadmin.dashboard') ? 'active' : '' }}">
                         <img src="{{ asset('vaccine-stock.png') }}" alt="Vaccine Stock Icon">
                         Vaccine Stock
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('hcadmin.account_settings') }}" class="{{ request()->routeIs('hcadmin.account_settings') ? 'active' : '' }}">
+                        <img src="{{ asset('settings.png') }}" alt="Account Settings Icon">
+                        Account Settings
                     </a>
                 </li>
 

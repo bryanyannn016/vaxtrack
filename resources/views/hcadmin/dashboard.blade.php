@@ -73,12 +73,13 @@
         padding: 10px 20px;
         border-radius: 5px;
         cursor: pointer;
-        margin-right:120px;
+        margin-right:170px;
     }
 </style>
 
 @section('content')
 
+<h2 style="margin-left:50px; color: #286187;"> Vaccine Stocks </h2>
 <!-- Add New Vaccine Button -->
 <div style="display: flex; justify-content: flex-end; margin-top:20px;">
     <button class="add-vaccine-btn" onclick="openAddVaccineModal()">Add New Vaccine</button>
